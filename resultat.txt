@@ -1,0 +1,398 @@
+test_ai_usage_not_empty (__main__.A_Structure.test_ai_usage_not_empty) ... ok
+test_imports_are_silent (__main__.A_Structure.test_imports_are_silent) ... ok
+test_required_files_exist (__main__.A_Structure.test_required_files_exist) ... ok
+test_required_functions_exist (__main__.A_Structure.test_required_functions_exist) ... ok
+test_standard_library_only (__main__.A_Structure.test_standard_library_only) ... ok
+test_student_constants (__main__.A_Structure.test_student_constants) ... ok
+test_load_airports (__main__.B_RowValidation.test_load_airports) ... ok
+test_to_record (__main__.B_RowValidation.test_to_record) ... ok
+test_validate_row (__main__.B_RowValidation.test_validate_row) ... ok
+test_database_matches_expected (__main__.C_ParsingAFile.test_database_matches_expected) ... ERROR
+test_default_output_location (__main__.C_ParsingAFile.test_default_output_location) ... FAIL
+test_errors_log_line_format (__main__.C_ParsingAFile.test_errors_log_line_format) ... ERROR
+test_errors_log_matches_expected (__main__.C_ParsingAFile.test_errors_log_matches_expected) ... FAIL
+test_main_twice_in_one_process (__main__.C_ParsingAFile.test_main_twice_in_one_process) ... ok
+test_parse_files_function (__main__.C_ParsingAFile.test_parse_files_function) ... ok
+test_windows_line_endings (__main__.C_ParsingAFile.test_windows_line_endings) ... ERROR
+test_folder_mode (__main__.D_CliAndFolders.test_folder_mode) ... ERROR
+test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) ... 
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing CSV file') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing folder') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='folder without .csv files') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing JSON database') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='database is not valid JSON') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='database is not an array') ... FAIL
+  test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='query file is not valid JSON') ... FAIL
+test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) ... 
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='no data source') ... FAIL
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='two data sources') ... FAIL
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-i without -a') ... FAIL
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-d without -a') ... FAIL
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-o with -j') ... FAIL
+  test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='unknown argument') ... FAIL
+test_duplicates_across_files (__main__.E_Duplicates.test_duplicates_across_files) ... ok
+test_duplicates_in_one_file (__main__.E_Duplicates.test_duplicates_in_one_file) ... ok
+test_exact_match_and_filters (__main__.F_BasicQueries.test_exact_match_and_filters) ... FAIL
+test_parse_and_query_in_one_run (__main__.F_BasicQueries.test_parse_and_query_in_one_run) ... FAIL
+test_run_query_function (__main__.F_BasicQueries.test_run_query_function) ... ok
+test_single_query_object (__main__.F_BasicQueries.test_single_query_object) ... FAIL
+test_extended_queries (__main__.G_ExtendedQueries.test_extended_queries) ... ok
+test_invalid_queries (__main__.G_ExtendedQueries.test_invalid_queries) ... ok
+test_default_response_folder (__main__.H_ResponseFile.test_default_response_folder) ... FAIL
+test_sample_response_file (__main__.H_ResponseFile.test_sample_response_file) ... FAIL
+
+======================================================================
+ERROR: test_database_matches_expected (__main__.C_ParsingAFile.test_database_matches_expected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 238, in test_database_matches_expected
+    self.assertEqual(read_json(self.tmp / "db.json"), read_json(EXPECTED / "db.json"))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 59, in read_json
+    with open(path, encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/flightlab_d1aaqad8/db.json'
+
+======================================================================
+ERROR: test_errors_log_line_format (__main__.C_ParsingAFile.test_errors_log_line_format)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 247, in test_errors_log_line_format
+    for line in (self.tmp / "errors.log").read_text(encoding="utf-8").splitlines():
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.14.2/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.14.2/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/flightlab_c_90lg34/errors.log'
+
+======================================================================
+ERROR: test_windows_line_endings (__main__.C_ParsingAFile.test_windows_line_endings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 262, in test_windows_line_endings
+    self.assertEqual(read_json(self.tmp / "db.json"), read_json(EXPECTED / "db.json"))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 59, in read_json
+    with open(path, encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/flightlab_vokkbg0e/db.json'
+
+======================================================================
+ERROR: test_folder_mode (__main__.D_CliAndFolders.test_folder_mode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 294, in test_folder_mode
+    self.assertEqual(read_json(self.tmp / "db.json"), read_json(EXPECTED / "flights_db.json"))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 59, in read_json
+    with open(path, encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/flightlab_1r4dyg2o/db.json'
+
+======================================================================
+FAIL: test_default_output_location (__main__.C_ParsingAFile.test_default_output_location)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 255, in test_default_output_location
+    self.assertTrue((self.tmp / "db.json").is_file(), "without -o, db.json must go to the current directory")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : without -o, db.json must go to the current directory
+
+======================================================================
+FAIL: test_errors_log_matches_expected (__main__.C_ParsingAFile.test_errors_log_matches_expected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 242, in test_errors_log_matches_expected
+    self.assertTrue((self.tmp / "errors.log").is_file(), "errors.log was not written next to the database")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : errors.log was not written next to the database
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing CSV file')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing folder')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='folder without .csv files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='missing JSON database')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='database is not valid JSON')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='database is not an array')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_runtime_errors_exit_1 (__main__.D_CliAndFolders.test_runtime_errors_exit_1) (case='query file is not valid JSON')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 316, in test_runtime_errors_exit_1
+    self.assertCleanExit(proc, 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exit code 1, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='no data source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='two data sources')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-i without -a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-d without -a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='-o with -j')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.D_CliAndFolders.test_usage_errors_exit_2) (case='unknown argument')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 331, in test_usage_errors_exit_2
+    self.assertCleanExit(run_cli(args, self.tmp), 2)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 95, in assertCleanExit
+    self.assertEqual(proc.returncode, code,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                     f"expected exit code {code}, got {proc.returncode}\nstderr:\n{proc.stderr}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2 : expected exit code 2, got 0
+stderr:
+
+
+======================================================================
+FAIL: test_exact_match_and_filters (__main__.F_BasicQueries.test_exact_match_and_filters)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 401, in test_exact_match_and_filters
+    result = self.run_queries_cli(queries)
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 378, in run_queries_cli
+    return self.response()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 371, in response
+    self.assertEqual(len(files), 1, "expected exactly one response file")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exactly one response file
+
+======================================================================
+FAIL: test_parse_and_query_in_one_run (__main__.F_BasicQueries.test_parse_and_query_in_one_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 416, in test_parse_and_query_in_one_run
+    result = self.run_queries_cli([{"origin": "LHR"}], source=("-i", DB_CSV, "-a", AIRPORTS, "-o", self.tmp / "db.json"))
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 378, in run_queries_cli
+    return self.response()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 371, in response
+    self.assertEqual(len(files), 1, "expected exactly one response file")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exactly one response file
+
+======================================================================
+FAIL: test_single_query_object (__main__.F_BasicQueries.test_single_query_object)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 410, in test_single_query_object
+    result = self.run_queries_cli({"origin": "RIX"})
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 378, in run_queries_cli
+    return self.response()
+           ~~~~~~~~~~~~~^^
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 371, in response
+    self.assertEqual(len(files), 1, "expected exactly one response file")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exactly one response file
+
+======================================================================
+FAIL: test_default_response_folder (__main__.H_ResponseFile.test_default_response_folder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 483, in test_default_response_folder
+    self.assertEqual(len(list(self.tmp.glob("response_*.json"))), 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "without -r, the response file goes to the current directory")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : without -r, the response file goes to the current directory
+
+======================================================================
+FAIL: test_sample_response_file (__main__.H_ResponseFile.test_sample_response_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/graded_lab_python/tests/run_public_tests.py", line 475, in test_sample_response_file
+    self.assertEqual(len(files), 1, f"expected exactly one file in the -r folder, found {files}")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : expected exactly one file in the -r folder, found []
+
+----------------------------------------------------------------------
+Ran 29 tests in 1.552s
+
+FAILED (failures=20, errors=4)
+
+Summary by grading group
+  A. Structure             6/6 tests passed
+  B. Row validation        3/3 tests passed
+  C. Parsing a file        2/7 tests passed
+  D. CLI and folders       0/3 tests passed
+  E. Duplicates            2/2 tests passed
+  F. Basic queries         1/4 tests passed
+  G. Extended queries      2/2 tests passed
+  H. Response file         0/2 tests passed
+
+Reminder: the final grade uses a larger hidden test set with different data.
